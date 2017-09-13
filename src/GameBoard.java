@@ -15,14 +15,14 @@ import java.util.List;
 public class GameBoard
 {
 
-  private static final boolean DEBUG = true;
+  private static final boolean DEBUG = false;
 
   private static final int HAND_SIZE = 7;
   private static final int DOMINO_DOT_SIZE = 6;
   private static int amountOfDominos = summation();
 
-  private List<DominoPiece> board = new ArrayList<>(2*amountOfDominos - 1);
-  private List<DominoPiece> boneYard = new ArrayList<>(amountOfDominos);
+  private ArrayList<DominoPiece> board = new ArrayList<>(amountOfDominos - 1);
+  private ArrayList<DominoPiece> boneYard = new ArrayList<>(amountOfDominos);
   private int amountOfDominosInBoneYard = amountOfDominos;
 
 
@@ -51,7 +51,11 @@ public class GameBoard
   {
     populate();
     this.board = board;
-    System.out.println(board.size());
+    if (DEBUG)
+    {
+      System.out.println(board.size());
+    }
+
   }
 
   /**
@@ -100,7 +104,7 @@ public class GameBoard
     }
     Collections.shuffle(boneYard);
 
-    for (int i = 0; i < 2 *amountOfDominos - 1; i++)
+    for (int i = 0; i < 1; i++)
     {
       board.add(new DominoPiece(100,100));
     }
@@ -110,8 +114,9 @@ public class GameBoard
    * Allows players to get the board and understand what can be played.
    * @return
    */
-  public List getBoard()
+  public ArrayList getBoard()
   {
+//    board.add(new DominoPiece(3, 5));
     return board;
   }
 
@@ -126,11 +131,13 @@ public class GameBoard
 
       //send game ending message
 //      System.out.println("You are out of Dominos");
+      amountOfDominosInBoneYard--;
       return new DominoPiece(100,100);
     }
     else
     {
       amountOfDominosInBoneYard--;
+      System.out.println(amountOfDominosInBoneYard);
       return boneYard.get(amountOfDominosInBoneYard);
     }
   }
@@ -175,6 +182,11 @@ public class GameBoard
   public int getAmountOfDominos()
   {
     return amountOfDominos;
+  }
+
+  public int getAmountOfDominosInBoneYard()
+  {
+    return amountOfDominosInBoneYard;
   }
 
 

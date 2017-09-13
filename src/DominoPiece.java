@@ -15,6 +15,7 @@ public class DominoPiece
 
   private int leftIndex;
   private int rightIndex;
+  boolean isRotated = false;
 
   /**
    * Creates the domino piece with a left and a right value.
@@ -51,7 +52,11 @@ public class DominoPiece
    */
   public String toString()
   {
-    return "L: " + leftIndex + ", R: " + rightIndex;
+    if (leftIndex == 100)
+    {
+      return " |-|-| ";
+    }
+    return " |" + leftIndex + "|" + rightIndex + "| ";
   }
 
   /**
@@ -63,7 +68,23 @@ public class DominoPiece
     int temp = leftIndex;
     leftIndex = rightIndex;
     rightIndex = temp;
+    isRotated = true;
   }
+
+  public String getDominoImage()
+  {
+    String imageName;
+    if (isRotated)
+    {
+      imageName = "file:png/d_tile" + rightIndex + leftIndex + ".png";
+    }
+    else
+    {
+      imageName = "file:png/d_tile" + leftIndex + rightIndex + ".png";
+    }
+    return imageName;
+  }
+
 
   public static void main(String[] args)
   {

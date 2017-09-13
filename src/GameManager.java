@@ -10,9 +10,12 @@ import java.util.Scanner;
 public class GameManager
 {
 
+  private static final boolean CONSOLE_MODE = true;
+  private static final boolean DEBUG = false;
+
   Scanner scanner = new Scanner(System.in);
 
-  private List<Player> players = new ArrayList<>();
+  List<Player> players = new ArrayList<>();
   private int numberOfPlayers;
   private int handSize;
 
@@ -41,7 +44,7 @@ public class GameManager
     }
 
     drawPhase();
-    gameLoop();
+//    gameLoop();
 
   }
 
@@ -61,16 +64,18 @@ public class GameManager
       }
     }
 
-    printPlayerHands();
-    System.out.println();
-//    gameBoard.printBoneYard();
+    if (CONSOLE_MODE)
+    {
+      printPlayerHands();
+      System.out.println();
+    }
   }
 
   /**
    * The draw mechanic for a given player to draw from the boneyard.
    * @param player
    */
-  private void draw(Player player)
+  protected void draw(Player player)
   {
     DominoPiece dp = gameBoard.drawFromBoneYard();
     if (dp == new DominoPiece(100, 100))
@@ -95,7 +100,18 @@ public class GameManager
 
     while (!gameOver)
     {
-      System.out.println("1 for Draw, 2 for Placement");
+      if (gameBoard.getAmountOfDominosInBoneYard() < 0)
+      {
+        gameOver = true;
+        break;
+      }
+
+      if (CONSOLE_MODE)
+      {
+        System.out.println("Player " + currentPlayer + "'s turn.");
+        System.out.println("1 for Draw, 2 for Placement");
+      }
+
       int temp = scanner.nextInt();
       if (temp == 1)
       {
@@ -104,43 +120,62 @@ public class GameManager
       }
       else
       {
-        System.out.println("Which domino?");
+
+        if (CONSOLE_MODE)
+        {
+          System.out.println("Which domino?");
+        }
+
         temp = scanner.nextInt();
 
+        if (DEBUG)
+        {
+          System.out.println("GetLeftIndex: " + leftIndex
+                  + " GetRightIndex: " + rightIndex);
+
+        }
         if (round == 0)
         {
-          gameBoard.placeDomino(gameBoard.getAmountOfDominos(), players.get
+          gameBoard.placeDomino(gameBoard.getAmountOfDominos() - 1, players.get
                   (currentPlayer).getDominoFromIndex(temp));
-          System.out.println(gameBoard.getAmountOfDominos());
-          leftIndex = gameBoard.getAmountOfDominos();
-          rightIndex = gameBoard.getAmountOfDominos();
+          leftIndex = gameBoard.getAmountOfDominos() - 1;
+          rightIndex = gameBoard.getAmountOfDominos() - 1;
+
         }
         else
         {
           DominoPiece pickedDomino = players.get(currentPlayer)
                   .getDominoFromIndex(temp);
-          System.out.println("Left (1) or right (2) of board?");
+
+          if (CONSOLE_MODE)
+          {
+            System.out.println("Left (1) or right (2) of board?");
+          }
+
           int leftOrRight = scanner.nextInt();
           if (leftOrRight == 1)
           {
             int leftValue = gameBoard.getDominoPieceFromBoard(leftIndex)
                     .getLeftIndex();
-            System.out.println("Left Value: " + leftValue + "Left Index: " +
-                    leftIndex);
-            System.out.println("GetLeftIndex: " + pickedDomino.getLeftIndex()
-                    + " GetRightIndex: " + pickedDomino.getRightIndex());
-            System.out.println((pickedDomino.getLeftIndex() == leftValue) ||
-                    (pickedDomino.getRightIndex() == leftValue));
-            if ((pickedDomino.getLeftIndex() == leftValue) || (pickedDomino
-                    .getRightIndex() == leftValue))
+
+            if (DEBUG)
             {
-              if (pickedDomino.getLeftIndex() == leftValue)
+              System.out.println((pickedDomino.getLeftIndex() == leftValue) ||
+                      (pickedDomino.getRightIndex() == leftValue));
+            }
+
+            if ((pickedDomino.getLeftIndex() == leftValue) || (pickedDomino
+                    .getRightIndex() == leftValue) || (pickedDomino
+                    .getLeftIndex() == 0) || (leftValue == 0))
+            {
+              if ((pickedDomino.getLeftIndex() == leftValue)|| (pickedDomino
+                      .getLeftIndex() == 0))
               {
                 pickedDomino.rotate();
               }
-              System.out.println("leftIndex: " + leftIndex);
+
               gameBoard.placeDomino(leftIndex, pickedDomino);
-              leftIndex--;
+              rightIndex++;
             }
           }
           else
@@ -148,30 +183,48 @@ public class GameManager
             int rightValue = gameBoard.getDominoPieceFromBoard(rightIndex )
                     .getRightIndex();
             if ((pickedDomino.getLeftIndex() == rightValue) || (pickedDomino
-                    .getRightIndex() == rightValue))
+                    .getRightIndex() == rightValue) || (pickedDomino
+                    .getRightIndex() == 0) || (rightValue == 0))
             {
-              if (pickedDomino.getRightIndex() == rightValue)
+              if ((pickedDomino.getRightIndex() == rightValue) ||
+                      (pickedDomino.getRightIndex() == 0))
               {
                 pickedDomino.rotate();
               }
-              System.out.println("rightIndex: " + rightIndex);
-              gameBoard.placeDomino(rightIndex, pickedDomino);
+              gameBoard.placeDomino(rightIndex + 1, pickedDomino);
               rightIndex++;
+            }
+            else
+            {
+              players.get(currentPlayer).addDominoToHand(pickedDomino);
             }
           }
         }
 
 
-        switchPlayer();
-        gameBoard.printBoard();
-        System.out.println();
-        printPlayerHands();
-        System.out.println();
+
+        if (CONSOLE_MODE)
+        {
+          switchPlayer();
+          gameBoard.printBoard();
+          System.out.println();
+          printPlayerHands();
+          System.out.println();
+        }
+
+        System.out.println("PLAY: " + gameBoard.getAmountOfDominosInBoneYard());
+        if (gameBoard.getAmountOfDominosInBoneYard() < 0)
+        {
+          gameOver = true;
+          break;
+        }
       }
-      //placement
-      //draw
+    }
 
-
+    switchPlayer();
+    if (CONSOLE_MODE)
+    {
+      System.out.println("GAME OVER! PLAYER " + currentPlayer + " WINS!");
     }
   }
 
@@ -192,6 +245,11 @@ public class GameManager
     }
   }
 
+  public GameBoard getGameBoard()
+  {
+    return gameBoard;
+  }
+
 
   /*************************
    * Utility
@@ -204,6 +262,11 @@ public class GameManager
       System.out.println("Player " + players.indexOf(player));
       player.printPlayerHand();
     }
+  }
+
+  public int getCurrentPlayer()
+  {
+    return currentPlayer;
   }
 
 

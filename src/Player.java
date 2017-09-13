@@ -12,7 +12,7 @@ public class Player
   private static final int HAND_SIZE = 7;
 
   private int playerIndex;
-  private List<DominoPiece> playerHand = new ArrayList<DominoPiece>(HAND_SIZE);
+  private ArrayList<DominoPiece> playerHand = new ArrayList<DominoPiece>(HAND_SIZE);
 
 
   public Player(int playerIndex)
@@ -20,10 +20,10 @@ public class Player
     this.playerIndex = playerIndex;
   }
 
-//  public List getPlayerHand()
-//  {
-//    return playerHand;
-//  }
+  public ArrayList getPlayerHand()
+  {
+    return playerHand;
+  }
 
   public int getPlayerIndex()
   {
@@ -51,8 +51,9 @@ public class Player
   {
     for (DominoPiece dp: playerHand)
     {
-      System.out.println(dp);
+      System.out.print(dp);
     }
+    System.out.print("\n");
   }
 
 }
