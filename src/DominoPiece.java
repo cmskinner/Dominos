@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * Christopher Skinner
  * August 25, 2017
@@ -71,52 +67,24 @@ public class DominoPiece
     isRotated = true;
   }
 
+  /**
+   * Makes the Domino essentially get itself, rather than getting it when it
+   * is needed. The Domino just knows how to find the image for itself.
+   *
+   * @return String which is the file path needed for the image.
+   */
   public String getDominoImage()
   {
     String imageName;
     if (isRotated)
     {
-      imageName = "file:png/d_tile" + rightIndex + leftIndex + ".png";
+      imageName = "file:resources/d_tile" + rightIndex + leftIndex + ".png";
     }
     else
     {
-      imageName = "file:png/d_tile" + leftIndex + rightIndex + ".png";
+      imageName = "file:resources/d_tile" + leftIndex + rightIndex + ".png";
     }
     return imageName;
-  }
-
-
-  public static void main(String[] args)
-  {
-    List list = new ArrayList<DominoPiece>();
-
-    for (int i = 0; i < 7; i++)
-    {
-      for (int j = i; j < 7; j++)
-      {
-        list.add(new DominoPiece(i, j));
-      }
-    }
-
-    if (DEBUG)
-    {
-      for (int i = 0; i < 28; i++)
-      {
-        System.out.println(list.get(i));
-      }
-    }
-
-    Collections.shuffle(list);
-
-
-    if (DEBUG)
-    {
-      System.out.println("");
-      for (int i = 0; i < 28; i++)
-      {
-        System.out.println(list.get(i));
-      }
-    }
   }
 
 }

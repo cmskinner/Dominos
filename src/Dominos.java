@@ -21,11 +21,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by chris on 11-Sep-17.
+ * Christopher Skinner
+ * August 25, 2017
+ *
+ * This is the JavaFX GUI. It contains most of the game loop logic,
+ * mechanics, and display features. The computer player exists in this class,
+ * which isn't the best design, but it works for what is needed.
  */
 public class Dominos extends Application implements EventHandler<ActionEvent>
 {
   private Text dominoTitle = new Text("WELCOME TO DOMINOS!");
+
+  HBox hBoxGameOver = new HBox();
 
   private Button draw, rotateButton, leftBoard, rightBoard;
   GameManager gameManager = new GameManager(2, 7);
@@ -40,14 +47,28 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
   private DominoPiece nullDomino = new DominoPiece(100,100);
   private DominoPiece currentDominoPiece = nullDomino;
 
+  private int currentPlayer = 0;
+  private boolean foundPlaceForComputer = false;
   private int round = 0;
   private int leftIndex, rightIndex = 0;
 
+  private boolean gameOver = false;
+
   private Canvas canvas;
 
+  Text gameOverText = new Text ("Game Over! Player " + currentPlayer + " " +
+          "Wins!");
+
+  /**
+   * This is where the program lives for most of it's time during execution.
+   * This is where all the button logic, which is where the game logic is.
+   *
+   * @param stage
+   */
   public void start(Stage stage)
   {
     dominoTitle.setFont(Font.font("Verdana", 30));
+    gameOverText.setFont(Font.font("Verdana", 30));
 
     draw = new Button("Draw");
     draw.setOnAction(this);
@@ -91,7 +112,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       if ((index >= 0) && (index < gameManager.players.get(0).getPlayerHand().size()))
       {
         currentDominoPiece = (DominoPiece)gameManager.players.get(0).getPlayerHand().get(index);
-        System.out.println(gameManager.players.get(0).getPlayerHand().get(index));
+//        System.out.println(gameManager.players.get(0).getPlayerHand().get(index));
       }
     });
 
@@ -104,31 +125,42 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       boardPane.setCenter(tempHBox);
     });
 
+    //executes a draw on the human player that presses the button
     draw.setOnAction(event -> {
       gameManager.draw(gameManager.players.get(gameManager.getCurrentPlayer()));
       HBox tempHBox = playersHand();
       handPane.setCenter(tempHBox);
+      if (gameManager.getGameBoard().getAmountOfDominosInBoneYard() == 0)
+      {
+        gameOver = true;
+        disableAllButtons();
+      }
     });
 
-
+    //This deals with all the game logic that comes from trying to place a
+    // Domino on the left side of the board.
     leftBoard.setOnAction(event -> {
 
       if (round == 0)
       {
         gameManager.getGameBoard().placeDomino(0, currentDominoPiece);
         gameManager.players.get(0).getPlayerHand().remove(currentDominoPiece);
+        currentDominoPiece = nullDomino;
         round++;
+        switchPlayer();
+        computerPlayerTurn();
       }
       else
       {
         int leftValue = gameManager.getGameBoard().getDominoPieceFromBoard(leftIndex)
                 .getLeftIndex();
-        System.out.println((currentDominoPiece.getLeftIndex() == leftValue) || (currentDominoPiece
-                .getRightIndex() == leftValue) || (currentDominoPiece
-                .getLeftIndex() == 0) || (leftValue == 0));
+//        System.out.println((currentDominoPiece.getLeftIndex() == leftValue) || (currentDominoPiece
+//                .getRightIndex() == leftValue) || (currentDominoPiece
+//                .getLeftIndex() == 0) || (leftValue == 0));
         if ((currentDominoPiece.getLeftIndex() == leftValue) || (currentDominoPiece
                 .getRightIndex() == leftValue) || (currentDominoPiece
-                .getLeftIndex() == 0) || (leftValue == 0))
+                .getLeftIndex() == 0) || (currentDominoPiece.getRightIndex()
+                == 0) || (leftValue == 0))
         {
           if ((currentDominoPiece.getLeftIndex() == leftValue)|| (currentDominoPiece
                   .getLeftIndex() == 0))
@@ -139,6 +171,19 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
           gameManager.getGameBoard().placeDomino(leftIndex, currentDominoPiece);
           rightIndex++;
           gameManager.players.get(0).getPlayerHand().remove(currentDominoPiece);
+          currentDominoPiece = nullDomino;
+
+          if (gameManager.players.get(0).getPlayerHand().size() == 0)
+          {
+            gameOver = true;
+            disableAllButtons();
+          }
+          else
+          {
+            switchPlayer();
+            computerPlayerTurn();
+          }
+
         }
       }
       HBox tempHBox = boardRedraw();
@@ -150,6 +195,8 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
     });
 
+    //This deals with all the game logic that comes from trying to place a
+    // Domino on the right side of the board.
     rightBoard.setOnAction(event -> {
 
       if (round == 0)
@@ -157,17 +204,21 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
         gameManager.getGameBoard().placeDomino(0, currentDominoPiece);
         gameManager.players.get(0).getPlayerHand().remove(currentDominoPiece);
         round++;
+        currentDominoPiece = nullDomino;
+        switchPlayer();
+        computerPlayerTurn();
       }
       else
       {
         int rightValue = gameManager.getGameBoard().getDominoPieceFromBoard(rightIndex)
                 .getRightIndex();
-        System.out.println((currentDominoPiece.getLeftIndex() == rightValue) || (currentDominoPiece
-                .getRightIndex() == rightValue) || (currentDominoPiece
-                .getRightIndex() == 0) || (rightValue == 0));
+//        System.out.println((currentDominoPiece.getLeftIndex() == rightValue) || (currentDominoPiece
+//                .getRightIndex() == rightValue) || (currentDominoPiece
+//                .getRightIndex() == 0) || (rightValue == 0));
         if ((currentDominoPiece.getLeftIndex() == rightValue) || (currentDominoPiece
                 .getRightIndex() == rightValue) || (currentDominoPiece
-                .getRightIndex() == 0) || (rightValue == 0))
+                .getRightIndex() == 0) || (currentDominoPiece.getLeftIndex()
+                == 0) || (rightValue == 0))
         {
           if ((currentDominoPiece.getRightIndex() == rightValue) ||
                   (currentDominoPiece.getRightIndex() == 0))
@@ -177,6 +228,17 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
           gameManager.getGameBoard().placeDomino(rightIndex + 1, currentDominoPiece);
           rightIndex++;
           gameManager.players.get(0).getPlayerHand().remove(currentDominoPiece);
+          currentDominoPiece = nullDomino;
+          if (gameManager.players.get(0).getPlayerHand().size() == 0)
+          {
+            gameOver = true;
+            disableAllButtons();
+          }
+          else
+          {
+            switchPlayer();
+            computerPlayerTurn();
+          }
         }
       }
       HBox tempHBox = boardRedraw();
@@ -187,9 +249,14 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
     });
 
+    hBoxGameOver.setSpacing(15);
+    hBoxGameOver.setAlignment(centrePos);
+    hBoxGameOver.getChildren().addAll(gameOverText);
+    hBoxGameOver.setVisible(false);
+
 
     vBox.getChildren().addAll(hBoxTitle, hBoxButtons, boardPane, hBoxLeftRight,
-            handPane);
+            handPane, hBoxGameOver);
 
     Scene scene = new Scene(vBox, WINDOW_WIDTH, WINDOW_HEIGHT);
 
@@ -198,6 +265,12 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
   }
 
+  /**
+   * This sets up the images to be viewed and displayed on the screen correctly
+   *
+   * @param list
+   * @return ImageView imageView
+   */
   private ArrayList<ImageView> rowToBeDisplayed(ArrayList<DominoPiece> list)
   {
     ArrayList<ImageView> imageViews = new ArrayList<>();
@@ -213,6 +286,12 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     return imageViews;
   }
 
+  /**
+   * Creates the HBox for the player's hand that is drawn, redrawn, and
+   * displayed.
+   *
+   * @return HBox
+   */
   private HBox playersHand()
   {
     ArrayList<ImageView> imageViews = rowToBeDisplayed(gameManager.players
@@ -225,6 +304,12 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     return hbox;
   }
 
+  /**
+   * Creates the HBox that is needed for the board to be drawn, redrawn,
+   * and displayed on screen.
+   *
+   * @return
+   */
   private HBox boardRedraw()
   {
     ArrayList<ImageView> imageViews = rowToBeDisplayed(gameManager
@@ -234,24 +319,135 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     {
       hbox.getChildren().add(imageViews.get(i));
     }
+
+//    if (gameManager.players.get())
     return hbox;
   }
 
-  private void draw()
+  /**
+   * A simple method to switch players.
+   */
+  private void switchPlayer()
   {
-
+    if (currentPlayer ==0)
+    {
+      currentPlayer = 1;
+    }
+    else
+    {
+      currentPlayer = 0;
+    }
   }
 
-  private void play()
+  /**
+   * This is all the computer player's logic in how it determines it's move.
+   *
+   * It does all the checking within the method to check for logical moves
+   * and places it. This is a somewhat hack-y way to get around this and not
+   * very well designed, it could've been much better.
+   *
+   * The computer is very simple and just places the first Domino it seems as
+   * a possible move and if it has no possible moves, it draws.
+   */
+  private void computerPlayerTurn()
   {
+    int leftValue = gameManager.getGameBoard().getDominoPieceFromBoard
+            (leftIndex).getLeftIndex();
+    int rightValue = gameManager.getGameBoard().getDominoPieceFromBoard
+            (rightIndex).getRightIndex();
+    for (int i = 0; i < gameManager.players.get(currentPlayer).getPlayerHand
+            ().size(); i++)
+    {
+      currentDominoPiece = (DominoPiece)gameManager.players.get(currentPlayer)
+              .getPlayerHand().get(i);
+      if ((currentDominoPiece.getLeftIndex() == leftValue) || (currentDominoPiece
+              .getRightIndex() == leftValue) || (currentDominoPiece
+              .getLeftIndex() == 0) || (leftValue == 0))
+      {
+        if ((currentDominoPiece.getLeftIndex() == leftValue)|| (currentDominoPiece
+                .getLeftIndex() == 0))
+        {
+          currentDominoPiece.rotate();
+        }
 
+        gameManager.getGameBoard().placeDomino(leftIndex, currentDominoPiece);
+        rightIndex++;
+        gameManager.players.get(1).getPlayerHand().remove(currentDominoPiece);
+        currentDominoPiece = nullDomino;
+        switchPlayer();
+        foundPlaceForComputer = true;
+        break;
+      }
+
+      if ((currentDominoPiece.getLeftIndex() == rightValue) || (currentDominoPiece
+              .getRightIndex() == rightValue) || (currentDominoPiece
+              .getRightIndex() == 0) || (rightValue == 0))
+      {
+        if ((currentDominoPiece.getRightIndex() == rightValue) ||
+                (currentDominoPiece.getRightIndex() == 0))
+        {
+          currentDominoPiece.rotate();
+        }
+        gameManager.getGameBoard().placeDomino(rightIndex + 1, currentDominoPiece);
+        rightIndex++;
+        gameManager.players.get(1).getPlayerHand().remove(currentDominoPiece);
+        currentDominoPiece = nullDomino;
+        if (gameManager.players.get(1).getPlayerHand().size() == 0)
+        {
+          gameOver = true;
+          disableAllButtons();
+        }
+        else
+        {
+          switchPlayer();
+        }
+        foundPlaceForComputer = true;
+        break;
+      }
+    }
+
+    if (!foundPlaceForComputer)
+    {
+//      System.out.println("Computer Draw");
+      gameManager.draw(gameManager.players.get(1));
+      computerPlayerTurn();
+    }
+
+    foundPlaceForComputer = false;
+//    HBox tempHBox = boardRedraw();
+//    boardPane.setCenter(tempHBox);
   }
 
+  /**
+   * This method is used to end the game. This disables all buttons and
+   * displays the gameover screen with the appropriate winner.
+   */
+  private void disableAllButtons()
+  {
+    draw.setDisable(true);
+    leftBoard.setDisable(true);
+    rightBoard.setDisable(true);
+    handPane.setDisable(true);
+    dominoTitle.setVisible(false);
+    gameOverText = new Text("Game Over! Player " + currentPlayer + " wins!");
+    hBoxGameOver.setVisible(true);
+  }
+
+  /**
+   * This is never used in this program, it simply needs to be implemented.
+   *
+   * @param event
+   */
   public void handle(ActionEvent event)
   {
 
   }
 
+  /**
+   * This is the main method that is the entry point for the entire program.
+   *
+   * @param args
+   */
   public static void main(String[] args)
   {
     launch(args);

@@ -6,6 +6,9 @@ import java.util.Scanner;
  * Christopher Skinner
  * August 25, 2017
  *
+ * This is the object that creates all the elements and players that the game
+ * needs to function. This includes the gameboard, 2 players currently, and
+ * well as certain mechanics.
  */
 public class GameManager
 {
@@ -44,7 +47,8 @@ public class GameManager
     }
 
     drawPhase();
-//    gameLoop();
+//    gameLoop();  //This was used when the GUI didn't exist, it now does and
+// the game loop in basically within the GUI in Dominos.java
 
   }
 
@@ -92,8 +96,7 @@ public class GameManager
    * Main gameloop for the Domino game that controls player turns and how
    * dominos are placed to the gameBoard.
    *
-   * There is A LOT of work to do here for refactoring and to still get the
-   * game logic to fully work.
+   * This is simply only used for the console version of the
    */
   private void gameLoop()
   {
@@ -212,7 +215,7 @@ public class GameManager
           System.out.println();
         }
 
-        System.out.println("PLAY: " + gameBoard.getAmountOfDominosInBoneYard());
+//        System.out.println("PLAY: " + gameBoard.getAmountOfDominosInBoneYard());
         if (gameBoard.getAmountOfDominosInBoneYard() < 0)
         {
           gameOver = true;
@@ -229,7 +232,7 @@ public class GameManager
   }
 
   /**
-   * Switches players mechanic.
+   * Switch players mechanic.
    */
   private void switchPlayer()
   {
@@ -245,6 +248,12 @@ public class GameManager
     }
   }
 
+  /**
+   * Returns the gameboard, which includes where dominos are played and the
+   * boneyard.
+   *
+   * @return GameBoard
+   */
   public GameBoard getGameBoard()
   {
     return gameBoard;
@@ -255,6 +264,9 @@ public class GameManager
    * Utility
    ******************************/
 
+  /**
+   * Utility method for debugging that prints player hands.
+   */
   public void printPlayerHands()
   {
     for (Player player: players)
@@ -264,17 +276,14 @@ public class GameManager
     }
   }
 
+  /**
+   * Returns the current player
+   *
+   * @return int current player index in players ArrayList
+   */
   public int getCurrentPlayer()
   {
     return currentPlayer;
-  }
-
-
-  public static void main(String[] args)
-  {
-
-    GameManager gm = new GameManager(2, 7);
-
   }
 
 }

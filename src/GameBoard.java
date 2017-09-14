@@ -1,8 +1,5 @@
-import com.sun.java.browser.plugin2.DOM;
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Christopher Skinner
@@ -59,19 +56,6 @@ public class GameBoard
   }
 
   /**
-   * Unused currently.
-   *
-   * @param a
-   * @param indexA
-   * @param b
-   */
-  public void addDomino(ArrayList a, int indexA, ArrayList b)
-  {
-    b.add(a.get(indexA));
-    a.remove(a.get(indexA));
-  }
-
-  /**
    * Domino placing mechanic for the board.
    *
    * @param index
@@ -87,11 +71,8 @@ public class GameBoard
     return board.get(index);
   }
 
-
-  /****************** Utility Methods *****************/
-
   /**
-   * Utility method for populating the boneyard.
+   * Utility method for populating the boneyard with all needed Dominos.
    */
   private void populate()
   {
@@ -128,8 +109,6 @@ public class GameBoard
   {
     if (amountOfDominosInBoneYard == 0)
     {
-
-      //send game ending message
 //      System.out.println("You are out of Dominos");
       amountOfDominosInBoneYard--;
       return new DominoPiece(100,100);
@@ -137,7 +116,7 @@ public class GameBoard
     else
     {
       amountOfDominosInBoneYard--;
-      System.out.println(amountOfDominosInBoneYard);
+//      System.out.println(amountOfDominosInBoneYard);
       return boneYard.get(amountOfDominosInBoneYard);
     }
   }
@@ -184,17 +163,13 @@ public class GameBoard
     return amountOfDominos;
   }
 
+  /**
+   * Gets the amount of dominos in the bone yard to detect the end of the game.
+   * @return
+   */
   public int getAmountOfDominosInBoneYard()
   {
     return amountOfDominosInBoneYard;
   }
 
-
-  public static void main(String[] args)
-  {
-
-    GameBoard gb = new GameBoard();
-    System.out.println("Done");
-
-  }
 }
