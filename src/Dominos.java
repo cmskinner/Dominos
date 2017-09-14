@@ -5,10 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -56,8 +53,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
   private Canvas canvas;
 
-  Text gameOverText = new Text ("Game Over! Player " + currentPlayer + " " +
-          "Wins!");
+  Text gameOverText = new Text ("Game Over!");
 
   /**
    * This is where the program lives for most of it's time during execution.
@@ -133,6 +129,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       if (gameManager.getGameBoard().getAmountOfDominosInBoneYard() == 0)
       {
         gameOver = true;
+        switchPlayer();
         disableAllButtons();
       }
     });
@@ -145,6 +142,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       {
         gameManager.getGameBoard().placeDomino(0, currentDominoPiece);
         gameManager.players.get(0).getPlayerHand().remove(currentDominoPiece);
+        gameManager.getGameBoard().getBoard().remove(1);
         currentDominoPiece = nullDomino;
         round++;
         switchPlayer();
@@ -204,6 +202,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
         gameManager.getGameBoard().placeDomino(0, currentDominoPiece);
         gameManager.players.get(0).getPlayerHand().remove(currentDominoPiece);
         round++;
+        gameManager.getGameBoard().getBoard().remove(0);
         currentDominoPiece = nullDomino;
         switchPlayer();
         computerPlayerTurn();
@@ -408,14 +407,11 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
     if (!foundPlaceForComputer)
     {
-//      System.out.println("Computer Draw");
       gameManager.draw(gameManager.players.get(1));
       computerPlayerTurn();
     }
 
     foundPlaceForComputer = false;
-//    HBox tempHBox = boardRedraw();
-//    boardPane.setCenter(tempHBox);
   }
 
   /**
@@ -429,7 +425,9 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     rightBoard.setDisable(true);
     handPane.setDisable(true);
     dominoTitle.setVisible(false);
-    gameOverText = new Text("Game Over! Player " + currentPlayer + " wins!");
+    gameOverText = new Text("Game Over!");
+    new Alert(Alert.AlertType.INFORMATION, "Player " + currentPlayer + " " +
+            "wins!").showAndWait();
     hBoxGameOver.setVisible(true);
   }
 

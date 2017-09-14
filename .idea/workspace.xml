@@ -2,76 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73f41afa-a242-4335-b04f-bba6847a3cba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DominosDesignPres.pptx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile00.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile06.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile100100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile11.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile12.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile13.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile14.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile15.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile22.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile23.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile24.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile25.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile26.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile33.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile34.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile35.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile36.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile44.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile45.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile46.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile55.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile56.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/d_tile66.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile00.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile05.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile06.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile100100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile22.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile23.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile24.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile25.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile26.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile33.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile34.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile35.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile36.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile44.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile45.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile46.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile55.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile56.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/d_tile66.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dominos/DominoPiece.class" afterPath="$PROJECT_DIR$/out/production/Dominos/DominoPiece.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dominos/Dominos.class" afterPath="$PROJECT_DIR$/out/production/Dominos/Dominos.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dominos/GameBoard.class" afterPath="$PROJECT_DIR$/out/production/Dominos/GameBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dominos/GameManager.class" afterPath="$PROJECT_DIR$/out/production/Dominos/GameManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dominos/Player.class" afterPath="$PROJECT_DIR$/out/production/Dominos/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DominoPiece.java" afterPath="$PROJECT_DIR$/src/DominoPiece.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Dominos.java" afterPath="$PROJECT_DIR$/src/Dominos.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameBoard.java" afterPath="$PROJECT_DIR$/src/GameBoard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameManager.java" afterPath="$PROJECT_DIR$/src/GameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player.java" afterPath="$PROJECT_DIR$/src/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,13 +17,13 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.4627492">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
+                <state relative-caret-position="1593">
                   <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
                   <folding>
                     <element signature="e#743#744#0" expanded="true" />
@@ -111,11 +45,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DominoPiece.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DominoPiece.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/DominoPiece.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="243">
+                  <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -124,24 +58,24 @@
           <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GameManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="190">
-                  <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+                <state relative-caret-position="405">
+                  <caret line="15" column="51" lean-forward="false" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#6218#6219#0" expanded="true" />
-                    <element signature="e#6244#6245#0" expanded="true" />
-                    <element signature="e#6722#6723#0" expanded="true" />
-                    <element signature="e#6752#6753#0" expanded="true" />
+                    <element signature="e#6219#6220#0" expanded="true" />
+                    <element signature="e#6245#6246#0" expanded="true" />
+                    <element signature="e#6723#6724#0" expanded="true" />
+                    <element signature="e#6753#6754#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Dominos.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Dominos.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Dominos.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="447" column="4" lean-forward="false" selection-start-line="447" selection-start-column="4" selection-end-line="447" selection-end-column="4" />
+                <state relative-caret-position="567">
+                  <caret line="131" column="23" lean-forward="false" selection-start-line="131" selection-start-column="23" selection-end-line="131" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
@@ -154,8 +88,8 @@
           <file leaf-file-name="Dominos.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Dominos.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="271">
-                  <caret line="412" column="27" lean-forward="true" selection-start-line="412" selection-start-column="27" selection-end-line="412" selection-end-column="27" />
+                <state relative-caret-position="458">
+                  <caret line="315" column="27" lean-forward="false" selection-start-line="315" selection-start-column="27" selection-end-line="315" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -189,10 +123,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/GameBoard.java" />
-        <option value="$PROJECT_DIR$/src/DominoPiece.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/Dominos.java" />
+        <option value="$PROJECT_DIR$/src/DominoPiece.java" />
         <option value="$PROJECT_DIR$/src/GameManager.java" />
+        <option value="$PROJECT_DIR$/src/Dominos.java" />
       </list>
     </option>
   </component>
@@ -203,10 +137,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-200" />
-    <option name="y" value="-1088" />
-    <option name="width" value="2576" />
-    <option name="height" value="1056" />
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
+    <option name="width" value="2176" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -753,12 +687,12 @@
       <workItem from="1504211019871" duration="2260000" />
       <workItem from="1504814645610" duration="14743000" />
       <workItem from="1505144003821" duration="8177000" />
-      <workItem from="1505246459186" duration="25266000" />
+      <workItem from="1505246459186" duration="27627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72599000" />
+    <option name="totallyTimeSpent" value="74960000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -770,7 +704,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-200" y="-1088" width="2576" height="1056" extended-state="6" />
+    <frame x="-8" y="32" width="2176" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -783,12 +717,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17391305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="429" y="-1007" width="1278" height="1008" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124105014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="429" y="-1007" width="1278" height="1008" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995495" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08346582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07277883" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -862,10 +796,10 @@
           <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -905,10 +839,10 @@
           <caret line="150" column="31" lean-forward="false" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -948,10 +882,10 @@
           <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -991,10 +925,10 @@
           <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1034,10 +968,10 @@
           <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1056,10 +990,10 @@
           <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1085,6 +1019,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DominoPiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -1097,7 +1039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="1593">
           <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
           <folding>
             <element signature="e#743#744#0" expanded="true" />
@@ -1108,30 +1050,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        <state relative-caret-position="405">
+          <caret line="15" column="51" lean-forward="false" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6218#6219#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6722#6723#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
+            <element signature="e#6245#6246#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+            <element signature="e#6753#6754#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dominos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="447" column="4" lean-forward="false" selection-start-line="447" selection-start-column="4" selection-end-line="447" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DominoPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="458">
+          <caret line="315" column="27" lean-forward="false" selection-start-line="315" selection-start-column="27" selection-end-line="315" selection-end-column="27" />
           <folding />
         </state>
       </provider>

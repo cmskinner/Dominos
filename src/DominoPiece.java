@@ -7,7 +7,7 @@
 public class DominoPiece
 {
 
-  private static final boolean DEBUG = true;
+  private static final boolean DEBUG = false;
 
   private int leftIndex;
   private int rightIndex;

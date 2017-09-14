@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class GameManager
 {
 
-  private static final boolean CONSOLE_MODE = true;
+  private static final boolean CONSOLE_MODE = false;
   private static final boolean DEBUG = false;
 
   Scanner scanner = new Scanner(System.in);
