@@ -34,7 +34,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
   private Button draw, rotateButton, leftBoard, rightBoard;
   GameManager gameManager = new GameManager(2, 7);
 
-  private static final int WINDOW_WIDTH = 1200;
+  private static final int WINDOW_WIDTH = 1500;
   private static final int WINDOW_HEIGHT = 400;
   private static final int DOMINO_WIDTH = 133;
   private static final int DOMINO_HEIGHT = 67;
@@ -191,7 +191,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
           if (gameManager.players.get(0).getPlayerHand().size() == 0)
           {
             gameOver = true;
-            disableAllButtons();
+//            disableAllButtons();
           }
           else
           {
@@ -205,12 +205,14 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       boardPaneTop.setCenter(tempHBox);
       tempHBox = boardRedrawBottom();
       boardPaneBottom.setCenter(tempHBox);
-//      gameManager.getGameBoard().printBoard();
       HBox tempHBox2 = playersHand();
       handPane.setCenter(hBoxPlayerHand);
-//      hBoxPlayerHand.setAlignment(Pos.CENTER);
       handPane.setCenter(tempHBox2);
 
+      if (gameOver)
+      {
+        disableAllButtons();
+      }
 
     });
 
@@ -251,8 +253,8 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
           currentDominoPiece = nullDomino;
           if (gameManager.players.get(0).getPlayerHand().size() == 0)
           {
+//            disableAllButtons();
             gameOver = true;
-            disableAllButtons();
           }
           else
           {
@@ -270,6 +272,11 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       handPane.setCenter(hBoxPlayerHand);
 //      hBoxPlayerHand.setAlignment(Pos.CENTER);
       handPane.setCenter(tempHBox2);
+
+      if (gameOver)
+      {
+        disableAllButtons();
+      }
 
     });
 
@@ -352,6 +359,15 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
       }
     }
     hbox.setAlignment(Pos.CENTER);
+    if (gameOver)
+    {
+      hbox.setTranslateX(0);
+    }
+    else
+    {
+      hbox.setTranslateX(70);
+    }
+
     return hbox;
   }
 
@@ -480,9 +496,9 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     handPane.setDisable(true);
     dominoTitle.setVisible(false);
     gameOverText = new Text("Game Over!");
+    hBoxGameOver.setVisible(true);
     new Alert(Alert.AlertType.INFORMATION, "Player " + currentPlayer + " " +
             "wins!").showAndWait();
-    hBoxGameOver.setVisible(true);
   }
 
   /**

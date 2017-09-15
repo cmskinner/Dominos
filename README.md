@@ -15,5 +15,5 @@ I, Chris, did all part of the program in writing. There were ideas and whatnot t
 
 
 <h3>Know Issues</h3>
-- No stagger in the gameBoard
-- GameOver occasionally quickly
+- When the game is over from the computer winning, the board doesn't update until after the user dismisses the dialog box.
+- When the game is over, the stagger alignment from on the board disappears.
