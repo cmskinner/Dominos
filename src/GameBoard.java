@@ -66,6 +66,12 @@ public class GameBoard
     board.add(index, dominoPiece);
   }
 
+  /**
+   * Gets a particular domino from the board from the index given.
+   *
+   * @param index
+   * @return
+   */
   public DominoPiece getDominoPieceFromBoard(int index)
   {
     return board.get(index);

@@ -39,7 +39,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
   private static final int DOMINO_WIDTH = 133;
   private static final int DOMINO_HEIGHT = 67;
 
-  BorderPane handPane, boardPane;
+  BorderPane handPane, boardPaneTop, boardPaneBottom;
 
   private DominoPiece nullDomino = new DominoPiece(100,100);
   private DominoPiece currentDominoPiece = nullDomino;
@@ -100,6 +100,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
     HBox hBoxPlayerHand = playersHand();
 
+
     handPane = new BorderPane();
     handPane.setCenter(hBoxPlayerHand);
     handPane.setOnMouseClicked(event -> {
@@ -110,21 +111,37 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
         currentDominoPiece = (DominoPiece)gameManager.players.get(0).getPlayerHand().get(index);
 //        System.out.println(gameManager.players.get(0).getPlayerHand().get(index));
       }
+
     });
 
-    HBox hBoxBoard = boardRedraw();
+//    hBoxPlayerHand.setAlignment(Pos.CENTER);
 
-    boardPane = new BorderPane();
-    boardPane.setCenter(hBoxBoard);
-    boardPane.setOnMouseClicked(event -> {
-      HBox tempHBox = boardRedraw();
-      boardPane.setCenter(tempHBox);
+
+    HBox hBoxBoardBottom = boardRedrawTop();
+    HBox hBoxBoardTop = boardRedrawBottom();
+
+    boardPaneTop = new BorderPane();
+    boardPaneTop.setCenter(hBoxBoardBottom);
+    boardPaneTop.setCenter(hBoxBoardTop);
+    boardPaneTop.setOnMouseClicked(event -> {
+      HBox tempHBox = boardRedrawTop();
+      boardPaneTop.setCenter(tempHBox);
+    });
+
+
+    boardPaneBottom = new BorderPane();
+    boardPaneBottom.setCenter(hBoxBoardBottom);
+    boardPaneBottom.setOnMouseClicked(event -> {
+      HBox tempHBox = boardRedrawBottom();
+      boardPaneBottom.setCenter(tempHBox);
     });
 
     //executes a draw on the human player that presses the button
     draw.setOnAction(event -> {
       gameManager.draw(gameManager.players.get(gameManager.getCurrentPlayer()));
       HBox tempHBox = playersHand();
+      handPane.setCenter(hBoxPlayerHand);
+//      hBoxPlayerHand.setAlignment(Pos.CENTER);
       handPane.setCenter(tempHBox);
       if (gameManager.getGameBoard().getAmountOfDominosInBoneYard() == 0)
       {
@@ -184,10 +201,14 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
 
         }
       }
-      HBox tempHBox = boardRedraw();
-      boardPane.setCenter(tempHBox);
-      gameManager.getGameBoard().printBoard();
+      HBox tempHBox = boardRedrawTop();
+      boardPaneTop.setCenter(tempHBox);
+      tempHBox = boardRedrawBottom();
+      boardPaneBottom.setCenter(tempHBox);
+//      gameManager.getGameBoard().printBoard();
       HBox tempHBox2 = playersHand();
+      handPane.setCenter(hBoxPlayerHand);
+//      hBoxPlayerHand.setAlignment(Pos.CENTER);
       handPane.setCenter(tempHBox2);
 
 
@@ -240,13 +261,18 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
           }
         }
       }
-      HBox tempHBox = boardRedraw();
-      boardPane.setCenter(tempHBox);
-      gameManager.getGameBoard().printBoard();
+
+      HBox tempHBox = boardRedrawTop();
+      boardPaneTop.setCenter(tempHBox);
+      tempHBox = boardRedrawBottom();
+      boardPaneBottom.setCenter(tempHBox);
       HBox tempHBox2 = playersHand();
+      handPane.setCenter(hBoxPlayerHand);
+//      hBoxPlayerHand.setAlignment(Pos.CENTER);
       handPane.setCenter(tempHBox2);
 
     });
+
 
     hBoxGameOver.setSpacing(15);
     hBoxGameOver.setAlignment(centrePos);
@@ -254,7 +280,10 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     hBoxGameOver.setVisible(false);
 
 
-    vBox.getChildren().addAll(hBoxTitle, hBoxButtons, boardPane, hBoxLeftRight,
+
+    vBox.getChildren().addAll(hBoxTitle, hBoxButtons, boardPaneTop,
+            boardPaneBottom,
+            hBoxLeftRight,
             handPane, hBoxGameOver);
 
     Scene scene = new Scene(vBox, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -300,6 +329,7 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
     {
       hbox.getChildren().add(imageViews.get(i));
     }
+//    hbox.setAlignment(Pos.CENTER);
     return hbox;
   }
 
@@ -309,16 +339,40 @@ public class Dominos extends Application implements EventHandler<ActionEvent>
    *
    * @return
    */
-  private HBox boardRedraw()
+  private HBox boardRedrawTop()
   {
     ArrayList<ImageView> imageViews = rowToBeDisplayed(gameManager
             .getGameBoard().getBoard());
     HBox hbox = new HBox();
     for (int i = 0; i < imageViews.size(); i++)
     {
-      hbox.getChildren().add(imageViews.get(i));
+      if (i % 2 == 1)
+      {
+        hbox.getChildren().add(imageViews.get(i));
+      }
+    }
+    hbox.setAlignment(Pos.CENTER);
+    return hbox;
+  }
+
+  private HBox boardRedrawBottom()
+  {
+    ArrayList<ImageView> imageViews = rowToBeDisplayed(gameManager
+            .getGameBoard().getBoard());
+    HBox hbox = new HBox();
+//    HBox hbox2 = new HBox();
+    for (int i = 0; i < imageViews.size(); i++)
+    {
+
+      if (i % 2 == 0)
+      {
+        hbox.getChildren().add(imageViews.get(i));
+      }
+
     }
 
+
+    hbox.setAlignment(Pos.CENTER);
 //    if (gameManager.players.get())
     return hbox;
   }

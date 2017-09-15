@@ -78,6 +78,7 @@ public class DominoPiece
     String imageName;
     if (isRotated)
     {
+      //Take off file:resources for jar compile
       imageName = "file:resources/d_tile" + rightIndex + leftIndex + ".png";
     }
     else
